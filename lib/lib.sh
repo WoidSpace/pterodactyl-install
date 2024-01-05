@@ -538,7 +538,7 @@ debian)
   [ "$OS_VER_MAJOR" == "12" ] && SUPPORTED=true
   export DEBIAN_FRONTEND=noninteractive
   ;;
-rocky | almalinux)
+centos)
   [ "$OS_VER_MAJOR" == "8" ] && SUPPORTED=true
   [ "$OS_VER_MAJOR" == "9" ] && SUPPORTED=true
   ;;
