@@ -528,19 +528,19 @@ esac
 
 case "$OS" in
 ubuntu)
-  [ "$OS_VER_MAJOR" == "20" ] && SUPPORTED=true
-  [ "$OS_VER_MAJOR" == "22" ] && SUPPORTED=true
+  [ "$OS_VER_MAJOR" == "20" ] && SUPPORTED=false
+  [ "$OS_VER_MAJOR" == "22" ] && SUPPORTED=false
   export DEBIAN_FRONTEND=noninteractive
   ;;
 debian)
-  [ "$OS_VER_MAJOR" == "10" ] && SUPPORTED=true
-  [ "$OS_VER_MAJOR" == "11" ] && SUPPORTED=true
-  [ "$OS_VER_MAJOR" == "12" ] && SUPPORTED=true
+  [ "$OS_VER_MAJOR" == "10" ] && SUPPORTED=false
+  [ "$OS_VER_MAJOR" == "11" ] && SUPPORTED=false
+  [ "$OS_VER_MAJOR" == "12" ] && SUPPORTED=false
   export DEBIAN_FRONTEND=noninteractive
   ;;
 centos)
-  [ "$OS_VER_MAJOR" == "8" ] && SUPPORTED=true
-  [ "$OS_VER_MAJOR" == "9" ] && SUPPORTED=true
+  [ "$OS_VER_MAJOR" == "8" ] && SUPPORTED=false
+  [ "$OS_VER_MAJOR" == "9" ] && SUPPORTED=false
   ;;
 *)
   SUPPORTED=false
@@ -548,7 +548,7 @@ centos)
 esac
 
 # exit if not supported
-if [ "$SUPPORTED" == false ]; then
+if [ "$SUPPORTED" == true ]; then
   output "$OS $OS_VER is not supported"
   error "Unsupported OS"
   exit 1
